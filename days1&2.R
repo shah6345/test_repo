@@ -131,6 +131,7 @@ regression$Marital.Status_yes<-as.numeric(regression$Marital.Status=="Yes")
 regression$Marital.Status_no<-as.numeric(regression$Marital.Status=="No")
 regression$Education_graduate<-as.numeric(regression$Education=="Graduate")
 regression$Education_primary<-as.numeric(regression$Education=="Primary")
+regression$Education_secondary<-as.numeric(regression$Education=="Secondry")
 str(regression)
 regression$Metro.City_yes<-as.numeric(regression$Metro.City=="Yes")
 regression$Metro.City_no<-as.numeric(regression$Metro.City=="No")
@@ -185,3 +186,16 @@ cor(titanic$age)
 bx$stats
 titanic$age[is.na(titanic$age)]<-28
 hist(titanic$age)
+titanic$female<-ifelse(titanic$sex=="female",1,0)
+titanic$embarked_S<-ifelse(titanic$embarked=="S",1,0)
+titanic$embarked_C<-ifelse(titanic$embarked=="C",1,0)
+head(titanic$female)
+head(titanic$embarked_C)
+titanic<-titanic[,-c(3,4,9)]
+boxplot(bx)
+bx<-boxplot(titanic$age)
+bx$stats
+34-22
+titanic$age<-ifelse(titanic$age<4,4,titanic$age)
+titanic$age<-ifelse(titanic$age>52,52,titanic$age)
+boxplot(titanic$age)
